@@ -1,0 +1,57 @@
+
+// Method Overriding Example
+// Same method name and same parameters
+// Child classes provide their own implementation
+// This is Runtime Polymorphism
+
+class Animal {
+
+    // Method in Parent class
+    void sound() {
+        System.out.println("Sound from Animal");
+    }
+}
+
+class Dog extends Animal {
+
+    // Overriding sound() method
+    @Override
+    void sound() {
+        System.out.println("Sound from Dog");
+    }
+}
+
+class Cat extends Animal {
+
+    // Overriding sound() method
+    @Override
+    void sound() {
+        System.out.println("Sound from Cat");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+
+        // Parent reference → Child object
+        Animal s1 = new Dog();
+
+        // Parent reference → Child object
+        Animal s2 = new Cat();
+
+        // Parent reference → Parent object
+        Animal s3 = new Animal();
+
+        // Java decides which sound() method to call
+        // at runtime based on the actual object
+        s1.sound();
+        s2.sound();
+        s3.sound();
+
+        // Output:
+        // Sound from Dog
+        // Sound from Cat
+        // Sound from Animal
+    }
+}
+```
